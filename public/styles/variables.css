@@ -1,0 +1,41 @@
+:root {
+  --color-bg: #f5f8ff;
+  --color-bg-card: #fff;
+  --color-bg-dark: #181c25;
+  --color-primary: #2563eb;
+  --color-primary-dark: #1742a0;
+  --color-accent: #60a5fa;
+  --color-text: #1e293b;
+  --color-text-light: #fff;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-error: #ef4444;
+
+  --font-main: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 2rem;
+  --font-size-md: 1.125rem;
+  --font-size-sm: 0.95rem;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  --border-radius: 1.25rem;
+  --transition: 0.2s cubic-bezier(.4,0,.2,1);
+
+  /* Dark theme overrides */
+  [data-theme="dark"] {
+    --color-bg: #181c25;
+    --color-bg-card: #23272f;
+    --color-text: #f1f5f9;
+    --color-text-light: #fff;
+    --color-text-muted: #94a3b8;
+    --color-border: #23272f;
+    --color-primary: #60a5fa;
+    --color-primary-dark: #2563eb;
+    --color-accent: #3b82f6;
+  }
+}

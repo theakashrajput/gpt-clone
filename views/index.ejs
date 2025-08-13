@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejs Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/index.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="sidebar"></div>
+    <div id="main">
+      <div id="navbar">
+        <div id="sidebar-btn" class="nav-btn"><i class="ri-menu-line"></i></div>
+        <h2>My GPT</h2>
+        <div id="theme-btn" class="nav-btn"><i class="ri-moon-fill"></i></div>
+      </div>
+      <div id="chat-cont">
+        <div id="chat-window">Preview</div>
+        <div id="chat-input">
+          <div id="input-cont">
+            <textarea name="user-input" id="user-input" placeholder="Ask Anything"></textarea>
+          </div>
+          <div id="btn-cont">
+            <button type="submit">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/index.js"></script>
+</body>
+
+</html>
+
+<!-- 
+main: bgcolor = #f1f1f1
+
+theme-toggle-btn: bgcolor = #1f1f1f color = #fff onHover = #424242
+
+Form: bgcolor = #fff
+    label color = #4b4b4b
+    input bgcolor = #d9d7d7 focus = #3e68ff
+    submit-btn = #131313 hover: opacity 0.8
+    a: color: #3e68ff
+-->
