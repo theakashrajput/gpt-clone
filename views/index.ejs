@@ -11,25 +11,30 @@
 
 <body>
   <div id="wrapper">
-    <div id="sidebar"></div>
+    <div id="sidebar">
+      <button type="button" id="close-sidebar-btn"><i class="ri-close-large-fill"></i></button>
+    </div>
     <div id="main">
       <div id="navbar">
-        <div id="sidebar-btn" class="nav-btn"><i class="ri-menu-line"></i></div>
+        <div id="sidebar-btn" class="nav-btn"><i class="ri-menu-2-line"></i></div>
         <h2>My GPT</h2>
         <div id="theme-btn" class="nav-btn"><i class="ri-moon-fill"></i></div>
       </div>
       <div id="chat-cont">
-        <div id="chat-window">Preview</div>
-        <div id="chat-input">
-          <div id="input-cont">
-            <textarea name="user-input" id="user-input" placeholder="Ask Anything"></textarea>
-          </div>
-          <div id="btn-cont">
-            <button type="submit">Send</button>
-          </div>
+        <div id="chat-window">
+          <h4 class="new-chat-msg">New Chat</h4>
+        </div>
+      </div>
+      <div id="chat-input">
+        <div id="input-cont">
+          <textarea name="user-input" autofocus id="user-input" placeholder="Ask Anything"></textarea>
+        </div>
+        <div id="btn-cont">
+          <button id="input-submit-btn" type="submit">Send</button>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <script src="/js/index.js"></script>
