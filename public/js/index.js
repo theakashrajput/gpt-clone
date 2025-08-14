@@ -1,4 +1,5 @@
 (function () {
+    const socket = io();
     const userInput = document.querySelector("#user-input");
     const submitBtn = document.querySelector("#input-submit-btn");
     const chatWindow = document.querySelector("#chat-window");
@@ -42,7 +43,7 @@
 
         const msgCont = document.createElement('div');
         msgCont.className = "msg-text";
-        msgCont.textContent = text;
+        msgCont.innerHTML = marked.parse(text);
 
         const metaData = document.createElement('div');
         metaData.className = "chat-meta-data";
@@ -76,6 +77,7 @@
     function savedUserMessage() {
         const input = userInput.value.trim();
         if (!input) return console.log("Please enter a value");
+        socket.emit("user-prompt", input);
         userInput.value = '';
         userInput.disabled = true;
         submitBtn.disabled = true;
@@ -83,25 +85,27 @@
         const node = createMessage({ role: "user", text: input });
         chatWindow.appendChild(node);
         scrollToBottom();
-        setTimeout(() => {
-            getAnswer(input);
-        }, 3000);
+        dummyResponse();
     }
 
-    function getAnswer(msg) {
-        const node = createMessage({ role: 'bot', text: "..." });
-        chatWindow.appendChild(node);
+    function dummyResponse() {
+        const dummy = createMessage({ role: 'bot', text: "..." });
+        chatWindow.appendChild(dummy);
         scrollToBottom();
+    }
 
-        setTimeout(() => {
-            node.remove();
-            const reply = createMessage({ role: 'bot', text: `You said: ${msg}` });
-            chatWindow.appendChild(reply);
-            scrollToBottom();
-            userInput.disabled = false;
-            submitBtn.disabled = false;
-            userInput.focus();
-        }, 500);
+    socket.on("ai-response", (res) => {
+        getAnswer(res);
+    });
+
+    function getAnswer(msg) {
+        chatWindow.removeChild(chatWindow.lastElementChild);
+        const reply = createMessage({ role: 'bot', text: msg });
+        chatWindow.appendChild(reply);
+        scrollToBottom();
+        userInput.disabled = false;
+        submitBtn.disabled = false;
+        userInput.focus();
     }
 
     submitBtn.addEventListener("click", savedUserMessage);

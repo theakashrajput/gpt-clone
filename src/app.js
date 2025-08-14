@@ -3,7 +3,6 @@ import indexRoutes from './routes/index.route.js';
 import authRoutes from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
 
-
 const app = express();
 
 app.set("view engine", "ejs");

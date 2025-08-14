@@ -11,8 +11,7 @@ export const userAuthMiddleware = async (req, res, next) => {
         res.user = user;
         next();
     } catch (err) {
-        return res.status(500).json({
-            message: "Error: " + err
-        })
+        console.error(err.message);
+        res.redirect("/auth/login");
     }
 };
